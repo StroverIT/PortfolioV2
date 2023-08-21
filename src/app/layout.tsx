@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import Aside from '@/components/layout/Aside'
+import Navigation from '@/components/layout/Navigation'
+import Particles from '@/components/Particles'
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="bg-[#112548] relative">
+        <Particles isVisible={true}/>
+        <section className='grid grid-cols-[19%81%] container items-start my-2 gap-x-8 relative z-10'>
+
+          <Aside />
+
+          <section>
+            <Navigation />
+            <section className='mt-10'>
+    <main className="bg-white rounded-md p-4">
+              
+              {children}
+              </main>
+              </section>
+          </section>
+        </section>
+      </body>
     </html>
   )
 }
