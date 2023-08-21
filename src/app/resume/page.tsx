@@ -1,41 +1,38 @@
 import React from "react";
 
+import Image from "next/image";
+
+
 
 // Components
-import Profile from "@/components/pages/home/Profile";
-import Education from "@/components/pages/home/Education";
-import WorkExperience from "@/components/pages/home/WorkExperience";
-import TechnicalSkills from "@/components/pages/home/TechnicalSkills";
-import SoftSkills from "@/components/pages/home/SoftSkills";
-import Languages from "@/components/pages/home/Languages";
-import Interests from "@/components/pages/home/Interests";
-import Certificates from "@/components/pages/home/Certificates";
+import Profile from "@/components/pages/resume/Profile"
+import WorkExperience from "@/components/pages/resume/WorkExperience";
+import Education from "@/components/pages/resume/Education";
+import TechnicalSkills from "@/components/pages/resume/TechnicalSkills";
+import SoftSkills from "@/components/pages/resume/SoftSkills";
+import Languages from "@/components/pages/resume/Languages";
+import Interests from "@/components/pages/resume/Interests";
+import Certificates from "@/components/pages/resume/Certificates";
 
 export default function Home() {
   return (
+    <main className="bg-white rounded-md pb-5">
       <section className="container grid grid-cols-2 gap-x-10">
-        <section>
-
-         <Profile/>
-         <WorkExperience/>
-         <Education/> 
-         
+        <section className="">
+          <Profile/>
+          <WorkExperience/>
+          <Education/>
         </section>
-        
-        <section>
-         
-         <TechnicalSkills/>
-          <SoftSkills/>
+
+        <section className="">
+          <TechnicalSkills/>
+         <SoftSkills/>
           <Languages/>
           <Interests/>
-          <Certificates/>
-          
-         
-          
-         
+        <Certificates/>
         </section>
       </section>
-   
+    </main>
   );
 }
 
