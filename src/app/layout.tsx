@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#112548] relative">
         <Particles isVisible={true}/>
-        <section className='grid grid-cols-[19%81%] container items-start my-2 gap-x-8 relative z-10'>
+        <section className='grid grid-cols-[20%80%] container items-start my-2 gap-x-8 relative z-10'>
 
           <Aside />
 
