@@ -18,7 +18,7 @@ export default function Aside() {
       </section>
 
       <div className="relative h-[21.5rem] w-full  brightness-125 profile_image -mt-3">
-        <Image src="/profile.jpg" alt="my profile picture" fill className="" />
+        <Image src="/profile.jpg" alt="my profile picture" fill className="object-contain" />
       </div>
       <section className="mx-4 pb-4 relative">
         <div className="absolute left-[0.15rem] h-[15rem] w-[1px] bg-gray-300"></div>
