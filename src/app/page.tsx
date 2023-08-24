@@ -9,7 +9,7 @@ export default function page() {
           <h2>My story</h2>
         </article>
         <article className='w-full py-10 '>
-          <Book/>
+          {/* <Book/> */}
           </article>
     </section>
   )
