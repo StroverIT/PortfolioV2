@@ -11,7 +11,7 @@ import { BiSolidUser } from "react-icons/bi";
 
 export default function Aside() {
   return (
-    <section className="bg-white sticky top-1 rounded-lg overflow-hidden">
+    <section className="bg-white lg:sticky lg:top-1 rounded-lg overflow-hidden">
       <section className=" p-4   ">
         <h2 className="text-3xl font-semibold">Emil Zlatinov</h2>
         <p className="text-gray-600 text-xl -mt-1">React Developer</p>

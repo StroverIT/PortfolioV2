@@ -17,7 +17,7 @@ import Certificates from "@/components/pages/resume/Certificates";
 export default function Home() {
   return (
     <main className="bg-white rounded-md pb-5">
-      <section className="container grid grid-cols-2 gap-x-10">
+      <section className="container grid lg:grid-cols-2 gap-x-10">
         <section className="">
           <Profile/>
           <WorkExperience/>

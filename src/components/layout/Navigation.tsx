@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, {useState} from "react";
 
 import { FaHome } from "react-icons/fa";
 
@@ -37,10 +38,15 @@ const iconDataList: IconDataList[] = [
 ]
 
 export default function Navigation() {
+
+  // const [isOpen, setOpen] = useState(window.matchMedia("(min-width: 1024px)").matches ? true : false)
+  const [isOpen, setOpen] = useState(false)
+
+  
   return (
-    <section className="bg-white justify-between flex sticky top-1 rounded-lg transition-transform shadow-2xl z-10">
-      <section>
-        <ul className="flex gap-x-8 items-center uppercase font-semibold">
+    isOpen && <section className="bg-white justify-between flex lg:sticky lg:top-1 rounded-lg transition-transform shadow-2xl z-10">
+      <article>
+        <ul className="lg:flex gap-x-8 items-center uppercase font-semibold">
           <Link href="/">
             <li className="bg-cyan-400 flex items-center justify-center p-8 text-3xl rounded-lg hover:scale-75 transition-all hover:bg-cyan-300">
               <FaHome />
@@ -51,9 +57,9 @@ export default function Navigation() {
           <ListLink text="Contact" url="/contact"/>
 
         </ul>
-      </section>
-      <section>
-        <ul className="flex gap-x-7 items-center  text-xl mr-4">
+      </article>
+      <article>
+        <ul className="lg:flex gap-x-7 items-center  text-xl mr-4">
           
           {
             iconDataList.map((data,index)=>{
@@ -65,7 +71,7 @@ export default function Navigation() {
             <IconBtn text="Hire Me" icon={<BiLogoTelegram/>}/>
           </li>
         </ul>
-      </section>
+      </article>
     </section>
   );
 }
