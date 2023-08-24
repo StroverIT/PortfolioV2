@@ -18,7 +18,7 @@ export default function Interests() {
   return (
     <section>
     <Header text="interests" />
-    <section className="grid grid-cols-2 gap-x-4 gap-y-4">
+    <section className="grid lg:grid-cols-2 gap-x-4 gap-y-4">
       <Interest icon={<IoIosFitness />} text="Fitness" />
       <Interest icon={<GiAirplaneDeparture />} text="Traveling" />
       <Interest icon={<FaBookOpen />} text="Reading" />
