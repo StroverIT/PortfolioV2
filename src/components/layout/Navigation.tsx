@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import { FaHome } from "react-icons/fa";
 
@@ -41,6 +41,10 @@ export default function Navigation() {
 
   // const [isOpen, setOpen] = useState(window.matchMedia("(min-width: 1024px)").matches ? true : false)
   const [isOpen, setOpen] = useState(false)
+
+  useEffect(()=>{
+    setOpen(window.matchMedia("(min-width: 1024px)").matches ? true : false)
+  },[])
 
   
   return (
