@@ -2,32 +2,41 @@
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
+import { motion, useAnimationControls } from "framer-motion";
+
+
 export function Flip({
   image,
   p,
   isLast,
   flipIndex,
   zIndex,
-  page,
-  setPage,
+  page
 }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const flipRef = useRef(null)
+
+
+  const flipControl = useAnimationControls();
+
   
-  useLayoutEffect(() => {
-    setIsFlipped(page > flipIndex ? true : false);
+  useEffect(() => {
+    flipRef.current.style.transform = isFlipped ? "rotateY(-180deg)" : ""
 
-    flipRef.current.style.zIndex = page == flipIndex || isFlipped ? flipIndex : zIndex
-    flipRef.current.style.transform = page == flipIndex || isFlipped ? "rotateY(-180deg)" : ""
 
-  }, [page,isFlipped]);
+      flipRef.current.style.zIndex = isFlipped ? flipIndex : zIndex
+
+
+  }, [isFlipped]);
 
   return (
-    <section
+    <motion.section
       className={`w-full h-full absolute top-0 left-0  text-black flip `}
       id={`p${flipIndex} flip `}
       ref={flipRef}
+      animate={flipControl}
+
       // style={{
       //   zIndex: page == flipIndex || isFlipped ? flipIndex : zIndex,
       //   transform: page == flipIndex || isFlipped ? "rotateY(-180deg)" : "",
@@ -40,11 +49,11 @@ export function Flip({
         <div className="relative h-full w-full">
           <Image alt={image} fill src={image} className="object-contain"/>
         </div>
-         {page > 0 && (
+         {page >= 0 && (
           <label
             className="absolute bottom-[13px] left-[13px] cursor-pointer text-black z-[999]"
             id="back-btn"
-            onClick={() => setPage(page - 1)}
+            onClick={() => setIsFlipped(false)}
           >
             Back
           </label>
@@ -59,13 +68,13 @@ export function Flip({
         {!isLast && (
           <label
             className="absolute bottom-[13px] right-[13px] cursor-pointer text-black"
-            onClick={() => setPage(page + 1)}
+            onClick={() => setIsFlipped(true)}
             id="next-btn"
           >
-            Chapter {page + 1}
+            Next Chapter
           </label>
         )}
       </article>
-    </section>
+    </motion.section>
   );
 }

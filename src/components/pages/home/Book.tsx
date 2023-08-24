@@ -56,7 +56,8 @@ const data: FlipData[] = [
     title: "Last brat",
     p: `With a growing understanding of React, I embarked on my first real project. It was a modest to-do list application, but the lessons learned were monumental. Debugging became my constant companion, and the thrill of seeing my code come to life was unparalleled.`,
     _id: "safas231423",
-  },  {
+  }, 
+   {
     image: "/book/chapterSix.png",
     title: "Last brat",
     p: `React was just the tip of the iceberg. I delved into the wider React ecosystem, exploring tools like Redux for state management and React Router for navigation. Each piece of the puzzle expanded my skill set and opened up new possibilities for crafting seamless user experiences.`,
@@ -161,7 +162,6 @@ export default function Book() {
                 isLast={i == data.length - 1 ? true : false}
                 flipIndex={i + 1}
                 page={page}
-                setPage={setPage}
               />
             );
           })}

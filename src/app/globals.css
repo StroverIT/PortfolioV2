@@ -65,7 +65,9 @@
 	transform-origin: left;
 	transform-style: preserve-3d;
 	transform: rotateY(0deg);
-	transition: 1s;
+	/* transition: 1s; */
+	transition: 0.8s;
+
 }
 
 .front{
