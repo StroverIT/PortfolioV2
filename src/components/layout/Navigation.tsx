@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import { FaHome } from "react-icons/fa";
 
@@ -39,10 +39,12 @@ const iconDataList: IconDataList[] = [
 
 export default function Navigation() {
 
-  // const [isOpen, setOpen] = useState(window.matchMedia("(min-width: 1024px)").matches ? true : false)
+  // const [isOpen, setOpen] = useState()
   const [isOpen, setOpen] = useState(false)
 
-  
+  useEffect(()=>{
+    setOpen(window.matchMedia("(min-width: 1024px)").matches ? true : false)
+  },[])
   return (
     isOpen && <section className="bg-white justify-between flex lg:sticky lg:top-1 rounded-lg transition-transform shadow-2xl z-10">
       <article>
