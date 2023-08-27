@@ -4,6 +4,7 @@ import { Flip } from "./Flip";
 import Image from "next/image";
 
 import { motion, useAnimationControls } from "framer-motion";
+import {useGetMediaLg} from "../../../mediaQueries/getQuery"
 
 type FlipData = {
    image: string // Image is starting from cover => test:after Image -> first index of image
@@ -98,75 +99,74 @@ const data: FlipData[] = [
 export default function Book() {
 
   const [page, setPage] = useState(-1);
-
+  const lgQuery = useGetMediaLg()
   const containerControl = useAnimationControls();
   const coverControl = useAnimationControls();
 
   return (
-    <motion.div
-      className="flex items-center justify-center relative"
-      id="book"
-      animate={containerControl}
-    >
-      {/* Cover */}
-      <div className="relative w-[350px] h-[500px]">
-        <motion.div
-          className={`relative h-[500px] w-[350px] bg-[#2596BE] shadow-2xl cursor-pointer   test z-10`}
-          animate={coverControl}
-          transition={{
-            duration: 1,
-            type: "spring",
-            stiffness: 70,
-          }}
-          onClick={(e) => {
-            coverControl.set({
-              x: "350px",
-            });
-            setPage(0);
-            setTimeout(() => {
-              coverControl.start({
-                rotateY: "-180deg",
+    <article className="w-full py-10 mt-10">
+      <motion.div
+        className="flex items-center justify-center relative"
+        id="book"
+        animate={containerControl}
+      >
+        {/* Cover */}
+        <div className="relative lg:w-[350px] w-[160px] lg:h-[500px] h-[300px]">
+          <motion.div
+            className={`relative lg:h-[500px] h-[300px] lg:w-[350px] w-[160px] bg-[#2596BE] shadow-2xl cursor-pointer   cover z-10`}
+            animate={coverControl}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 70,
+            }}
+            onClick={(e) => {
+              coverControl.set({
+                x: lgQuery ? "350px" : "160px",
               });
-            }, [500]);
-            setTimeout(() => {
-              coverControl.start({
-                zIndex: 0,
-              });
-            }, [1000]);
-          }}
-        >
-          <Image alt="testingbro" fill={true} src="/book/cover.png" />
-        </motion.div>
-      </div>
-      {/* Book page */}
-      {page >= 0 && (
-        <motion.div
-          //  initial={{
-          //   translateX: "-200px",
-
-          //  }}
-          //   animate={{
-          //     // translateX: "2px",
-
-          //   }}
-          // transition={{ duration: 1 }}
-          className="h-[500px] w-[350px] relative perspective shadow-2xl"
-        >
-          {data.map((item, i) => {
-            return (
-              <Flip
-                key={item.image}
-                {...item}
-                zIndex={data.length - i}
-                isLast={i == data.length - 1 ? true : false}
-                flipIndex={i + 1}
-                page={page}
-                setPage={setPage}
-              />
-            );
-          })}
-        </motion.div>
-      )}
-    </motion.div>
+              setPage(0);
+              setTimeout(() => {
+                coverControl.start({
+                  rotateY: "-180deg",
+                });
+              }, [500]);
+              setTimeout(() => {
+                coverControl.start({
+                  zIndex: 0,
+                });
+              }, [1000]);
+            }}
+          >
+            <Image alt="testingbro" fill={true} src="/book/cover.png" />
+          </motion.div>
+        </div>
+        {/* Book page */}
+        {page >= 0 && (
+          <motion.div
+            //  initial={{
+            //   translateX: "-200px",
+            //  }}
+            //   animate={{
+            //     // translateX: "2px",
+            //   }}
+            // transition={{ duration: 1 }}
+            className="lg:h-[500px] h-[300px] lg:w-[350px] w-[160px] relative perspective shadow-2xl"
+          >
+            {data.map((item, i) => {
+              return (
+                <Flip
+                  key={item.image}
+                  {...item}
+                  zIndex={data.length - i}
+                  isLast={i == data.length - 1 ? true : false}
+                  flipIndex={i + 1}
+                  page={page}
+                />
+              );
+            })}
+          </motion.div>
+        )}
+      </motion.div>
+    </article>
   );
 }

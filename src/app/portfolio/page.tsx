@@ -11,8 +11,8 @@ type ProjectType = {
   websiteUrl: string;
   githubUrl: string;
   description: string;
-  type: string,
-  image: string,
+  type: string;
+  image: string;
 };
 const projectsData: ProjectType[] = [
   {
@@ -21,7 +21,7 @@ const projectsData: ProjectType[] = [
     githubUrl: "Strover",
     description: ``,
     type: "Portfolio",
-    image: "strover"
+    image: "strover",
   },
   {
     name: "IvdaGeo",
@@ -29,9 +29,7 @@ const projectsData: ProjectType[] = [
     githubUrl: "ivdaGeoNextApp",
     description: "",
     type: "E-commerce",
-    image: "ivdageo"
-
-
+    image: "ivdageo",
   },
   {
     name: "SoftOffice",
@@ -39,9 +37,7 @@ const projectsData: ProjectType[] = [
     githubUrl: "softOfficeNextJs",
     description: "",
     type: "E-commerce",
-    image: "softoffice"
-
-
+    image: "softoffice",
   },
   {
     name: "Cargomove",
@@ -49,27 +45,38 @@ const projectsData: ProjectType[] = [
     githubUrl: "cargomove",
     description: "",
     type: "Portfolio",
-    image: "cargomove"
-
-
+    image: "cargomove",
   },
 ];
 export default function page() {
   return (
-    <section className="grid grid-cols-2 gap-6">
+    <section className="grid max-lg:container lgrid-cols-2 gap-6 max-lg:py-4">
       {projectsData.map((data) => {
-        
         return <Project key={data.name} {...data} />;
       })}
     </section>
   );
 }
 
-function Project({ name, websiteUrl, githubUrl, description, type, image}: ProjectType) {
+function Project({
+  name,
+  websiteUrl,
+  githubUrl,
+  description,
+  type,
+  image,
+}: ProjectType) {
   const githubAppendUrl = `https://github.com/StroverIT/${githubUrl}`;
   return (
-    <article className="shadow-xl p-4 rounded-md">
-      <div className="relative h-72 w-full"><Image src={`/websites/${image}.png`} fill alt="description" className="object-contain"/></div>
+    <article className="shadow-xl p-4 rounded-md break-all">
+      <div className="relative h-72 w-full">
+        <Image
+          src={`/websites/${image}.png`}
+          fill
+          alt="description"
+          className="object-contain"
+        />
+      </div>
       <h2 className="font-semibold text-lg">{name}</h2>
       <p>{type} website</p>
       <ul className="mt-1">
@@ -81,7 +88,7 @@ function Project({ name, websiteUrl, githubUrl, description, type, image}: Proje
             {websiteUrl}
           </Link>
         </li>
-        <li className="flex items-center mt-1">
+        <li className="flex items-center mt-1 word">
           <div className="text-lg">
             <BsGithub />
           </div>

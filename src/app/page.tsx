@@ -1,16 +1,27 @@
-import Book from '@/components/pages/home/Book'
-import React from 'react'
+
+import React from "react";
+
+
+// Components
+import Articles from "@/components/pages/home/Articles";
+import Book from "@/components/pages/home/Book";
+import HeroSection from "@/components/pages/home/HeroSection";
+
+// Data
+import FindMe from "@/components/pages/home/FindMe";
+
+
+
 
 export default function page() {
   return (
-    <section>
-
-        <article>
-          <h2>My story</h2>
-        </article>
-        <article className='w-full py-10 '>
-          <Book/>
-          </article>
+    <section className="md:container mt-10 font-inter mb-10 max-lg:py-10">
+      <section className="max-lg container"><HeroSection/></section>
+      {/* <Articles/> */}
+        <Book />
+      <section className="max-lg:container"><FindMe/></section>
     </section>
-  )
+  );
 }
+
+

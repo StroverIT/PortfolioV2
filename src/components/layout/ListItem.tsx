@@ -9,7 +9,7 @@ const ListLink = ({text, url}: {text: string, url: string})=>{
     const pathname = usePathname()
 
     return <Link href={url}>
-      <li className={`${url == pathname ? "text-cyan-600": "hover:text-cyan-600 transition-colors"}`}>{text}</li>
+      <li className={`font-semibold ${url == pathname ? "text-cyan-600": "hover:text-cyan-600 transition-colors"}`}>{text}</li>
     </Link>
   }
 
