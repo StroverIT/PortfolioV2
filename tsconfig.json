@@ -20,7 +20,11 @@
     ],
     "paths": {
 
-      "@/components/*": ["./src/components/*"]
+      "@/components/*": ["./src/components/*"],
+      "@/libs/*": ["./src/libs/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/compLibs/*": ["./src/components/libs/*"],
+
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/Particles.tsx"],

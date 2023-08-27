@@ -1,10 +1,15 @@
 import './globals.css'
+
 import type { Metadata } from 'next'
+import { Montserrat } from 'next/font/google'
 
 import Aside from '@/components/layout/Aside'
 import Navigation from '@/components/layout/Navigation'
 import Particles from '@/components/Particles'
 
+import ToastContainer from "@/compLibs/ToastContainer"
+
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,15 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#112548] relative">
+      <body className={`bg-[#112548] relative ${montserrat.className}`}>
         <Particles isVisible={true}/>
-        <section className='grid lg:grid-cols-[20%80%] lg:container lg:items-start my-2 gap-x-8 relative z-10'>
+        <section className='grid lg:grid-cols-[25%75%] lg:container lg:items-start lg:my-2 gap-x-8 gap-y-20 relative z-10'>
 
           <Aside />
 
           <section>
             <Navigation />
-            <section className='mt-10'>
+            <section className='lg:mt-10'>
     <main className="bg-white rounded-md lg:p-4">
               
               {children}
@@ -35,6 +40,7 @@ export default function RootLayout({
               </section>
           </section>
         </section>
+        <ToastContainer/>
       </body>
     </html>
   )

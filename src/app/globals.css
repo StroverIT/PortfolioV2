@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,86 +18,109 @@
   }
 }
 
+body {
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  /* font-family: 'Lilita One', cursive; */
+}
+.loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.font-inter {
+  font-family: Inter;
+}
 .backface-visible {
-	backface-visibility: visible;
-  }
-  
-  .backface-invisible {
-	backface-visibility: hidden;
-  }
-  .transform-style-3d{
-	transform-style: preserve-3d;
-  }
-  .rotate-y-0{
-	transform: rotateY(0deg);
+  backface-visibility: visible;
+}
 
-  }
-  .rotate-y-180{
-	transform: rotateY(180deg);
+.backface-invisible {
+  backface-visibility: hidden;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.transition-0 {
+  transition: 0.5s;
+}
+.perspective {
+  perspective: 1500px;
+}
+.box-shadow-custom {
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5) 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 
-  }
-  .transition-0{
-	transition: .5s;
-  }
-  .perspective{
-	perspective: 1500px;
-
-  }
-  .box-shadow-custom{
-	box-shadow: inset 20px 0 50px rgba(0,0,0,0.5) 0 2px 5px rgba(0,0,0,.5);
-
-  }
-.profile_image{
+/* @media (min-width: 768px) { */
+.profile_image {
   -webkit-clip-path: polygon(0 9%, 100% 0, 100% 93%, 0 100%);
 
   clip-path: polygon(0 9%, 100% 0, 100% 93%, 0 100%);
+}
+/* } */
 
+.book {
+  display: flex;
+}
+#cover {
+  width: 250px;
+  height: 400px;
 }
 
-
-.book{
-	display: flex;
-}
-#cover{
-	width: 250px;
-	height: 400px;
+.flip {
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: 0.5s;
 }
 
-.flip{
-	transform-origin: left;
-	transform-style: preserve-3d;
-	transform: rotateY(0deg);
-	transition: 1s;
+.front {
+  box-sizing: border-box;
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5) 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.back {
+  z-index: 99;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
 
-.front{
-	box-sizing: border-box;
-	box-shadow: inset 20px 0 50px rgba(0,0,0,0.5) 0 2px 5px rgba(0,0,0,.5);
-}
-.back{
-	z-index: 99;
-	transform: rotateY(180deg);
-	backface-visibility: hidden;
-}
-
-.test { 
+.cover {
   position: relative;
-	transform-origin: left;
+  transform-origin: left;
 
   background-color: lightgreen;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
 }
 
-.test:after {
-  
+.cover:after {
   content: "";
-  background-image: url("/book/introduction.png")  ;
+  background-image: url("/book/introduction.png");
   background-repeat: no-repeat;
   display: inline-block;
-  width: 350px;
-  height: 500px;
-  background-size:  350px 500px;
+
+  width: 160px;
+  height: 300px;
+  background-size: 160px 300px;
+
   background-color: #0891b2;
   object-fit: contain;
   right: 0px;
@@ -104,7 +129,14 @@
   top: 0px;
   left: 0px;
   z-index: -1;
-  -webkit-transform: rotateY( -180deg );
+  -webkit-transform: rotateY(-180deg);
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+}
+@media screen and (min-width: 1024px) {
+  .cover:after {
+    background-size: 350px 500px;
+    width: 350px;
+    height: 500px;
+  }
 }
